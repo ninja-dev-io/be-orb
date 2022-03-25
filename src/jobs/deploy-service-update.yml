@@ -20,7 +20,8 @@ parameters:
       variable you will use to hold this value, i.e. AWS_SECRET_ACCESS_KEY.
     type: env_var_name
   cluster-name:
-    description: The short name or full ARN of the cluster that hosts the service.
+    description: >
+      The short name or full ARN of the cluster that hosts the service.
     type: string
   codedeploy-application-name:
     default: ''
@@ -92,7 +93,8 @@ parameters:
     type: string
   deployment-controller:
     default: ECS
-    description: The deployment controller to use for the service. Defaulted to ECS
+    description: >
+      The deployment controller to use for the service. Defaulted to ECS
     enum:
       - ECS
       - CODE_DEPLOY
@@ -186,19 +188,25 @@ steps:
   - aws-ecs/update-service:
       cluster-name: << parameters.cluster-name >>
       codedeploy-application-name: << parameters.codedeploy-application-name >>
-      codedeploy-deployment-group-name: << parameters.codedeploy-deployment-group-name >>
-      codedeploy-load-balanced-container-name: << parameters.codedeploy-load-balanced-container-name >>
-      codedeploy-load-balanced-container-port: << parameters.codedeploy-load-balanced-container-port >>
+      codedeploy-deployment-group-name: >
+        << parameters.codedeploy-deployment-group-name >>
+      codedeploy-load-balanced-container-name: >
+        << parameters.codedeploy-load-balanced-container-name >>
+      codedeploy-load-balanced-container-port: >
+        << parameters.codedeploy-load-balanced-container-port >>
       container-env-var-updates: << parameters.container-env-var-updates >>
-      container-image-name-updates: << parameters.container-image-name-updates >>
+      container-image-name-updates: >
+        << parameters.container-image-name-updates >>
       deployment-controller: << parameters.deployment-controller >>
-      fail-on-verification-timeout: << parameters.fail-on-verification-timeout >>
+      fail-on-verification-timeout: >
+        << parameters.fail-on-verification-timeout >>
       family: << parameters.family >>
       force-new-deployment: << parameters.force-new-deployment >>
       max-poll-attempts: << parameters.max-poll-attempts >>
       poll-interval: << parameters.poll-interval >>
       service-name: << parameters.service-name >>
-      skip-task-definition-registration: << parameters.skip-task-definition-registration >>
+      skip-task-definition-registration: >
+        << parameters.skip-task-definition-registration >>
       task-definition-tags: << parameters.task-definition-tags >>
       verification-timeout: << parameters.verification-timeout >>
       verify-revision-is-deployed: << parameters.verify-revision-is-deployed >>

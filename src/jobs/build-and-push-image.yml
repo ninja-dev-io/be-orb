@@ -96,7 +96,8 @@ parameters:
     type: string
   public-registry:
     default: false
-    description: Set to true if building and pushing an image to a Public Registry on ECR.
+    description: >
+      Set to true if building and pushing an image to a Public Registry on ECR.
     type: boolean
   push-image:
     default: true
@@ -145,11 +146,13 @@ parameters:
     type: boolean
   skip-when-tags-exist:
     default: false
-    description: Whether to skip image building if all specified tags already exist in ECR
+    description: >
+      Whether to skip image building if all specified tags already exist in ECR
     type: boolean
   source-profile:
     default: default
-    description: Source profile containing credentials to assume the role with role-arn.
+    description: >
+      Source profile containing credentials to assume the role with role-arn.
     type: string
   tag:
     default: latest
@@ -227,4 +230,3 @@ steps:
       tag: <<parameters.tag>>
   - store_artifacts:
       path: test.txt
-
