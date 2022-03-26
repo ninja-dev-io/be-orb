@@ -1,15 +1,20 @@
 description: >
   Command for spin up test environment using docker compose and run tests
+
 parameters:
   container:
     type: string
+    default: "web"
     description: "Application container name"
   env-file:
     type: string
+    default: ".env"
     description: "env file path"
   run-command:
     type: string
+    default: "npm run test"
     description: "Command for run tests inside docker-compose environment"
+
 steps:
   - run:
       command: |
