@@ -192,7 +192,7 @@ steps:
         << parameters.codedeploy-deployment-group-name >>
       codedeploy-load-balanced-container-name: >
         << parameters.codedeploy-load-balanced-container-name >>
-      codedeploy-load-balanced-container-port: >
+      codedeploy-load-balanced-container-port: 
         << parameters.codedeploy-load-balanced-container-port >>
       container-env-var-updates: << parameters.container-env-var-updates >>
       container-image-name-updates: >
