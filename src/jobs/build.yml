@@ -185,7 +185,7 @@ steps:
   - when:
       condition: <<parameters.setup-remote-docker>>
       steps:
-        - aws-ecr/setup_remote_docker:
+        - setup_remote_docker:
             docker_layer_caching: <<parameters.remote-docker-layer-caching>>
             version: <<parameters.remote-docker-version>>
   - aws-ecr/ecr-login:
