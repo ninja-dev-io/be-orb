@@ -198,14 +198,14 @@ steps:
       container-image-name-updates: >
         << parameters.container-image-name-updates >>
       deployment-controller: << parameters.deployment-controller >>
-      fail-on-verification-timeout: >
+      fail-on-verification-timeout:
         << parameters.fail-on-verification-timeout >>
       family: << parameters.family >>
       force-new-deployment: << parameters.force-new-deployment >>
       max-poll-attempts: << parameters.max-poll-attempts >>
       poll-interval: << parameters.poll-interval >>
       service-name: << parameters.service-name >>
-      skip-task-definition-registration: >
+      skip-task-definition-registration:
         << parameters.skip-task-definition-registration >>
       task-definition-tags: << parameters.task-definition-tags >>
       verification-timeout: << parameters.verification-timeout >>
