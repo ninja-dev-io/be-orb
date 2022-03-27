@@ -2,6 +2,10 @@ description: >
   Command for spin up test environment using docker compose and run tests
 
 parameters:
+  skip-tests:
+    type: boolean
+    default: false
+    description: "Should skip tests"
   container:
     type: string
     default: "web"
@@ -16,5 +20,14 @@ steps:
       name: Run Tests
       command: |
         #!/bin/bash
-        docker-compose up --build --detach
-        docker-compose run --rm <<parameters.container>> <<parameters.run-command>>
+        if [ "${PARAM_SKIP_TESTS}" == "1" ]; then
+          docker-compose up --build --detach
+          docker-compose run --rm "${PARAM_CONTAINER}" "${PARAM_RUN_COMMAND}"
+        else
+          echo "Skipping tests"
+          exit 0
+        fi
+      environment:
+        PARAM_SKIP_TESTS: <<parameters.skip-tests>>
+        PARAM_CONTAINER: <<parameters.container>>
+        PARAM_RUN_COMMAND: <<parameters.run-command>>

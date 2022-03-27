@@ -5,6 +5,10 @@ executor:
   name: default
 
 parameters:
+  skip-tests:
+    type: boolean
+    default: false
+    description: "Should skip tests"
   container:
     type: string
     default: "web"
@@ -17,5 +21,6 @@ parameters:
 steps:
   - checkout
   - run-tests:
+      skip-tests: <<parameters.skip-tests>>
       container: <<parameters.container>>
       run-command: <<parameters.run-command>>
