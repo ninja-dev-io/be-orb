@@ -19,9 +19,5 @@ steps:
   - run:
       name: Run Tests
       command: |
-        docker-compose --env-file $PARAM_ENV_FILE up --build
-        docker-compose run --rm $PARAM_CONTAINER $PARAM_RUN_COMMAND
-      environment:
-        PARAM_CONTAINER: <<parameters.container>>
-        PARAM_ENV_FILE: <<parameters.env-file>>
-        PARAM_RUN_COMMAND: <<parameters.run-command>>
+        docker-compose --env-file <<parameters.env-file>> up --build
+        docker-compose run --rm <<parameters.container>> <<parameters.run-command>>
