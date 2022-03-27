@@ -6,10 +6,6 @@ parameters:
     type: string
     default: "web"
     description: "Application container name"
-  env-file:
-    type: string
-    default: ".env"
-    description: "env file path"
   run-command:
     type: string
     default: "npm run test"
@@ -20,5 +16,5 @@ steps:
       name: Run Tests
       command: |
         #!/bin/bash
-        docker-compose --env-file <<parameters.env-file>> up --build --detach
+        docker-compose up --build --detach
         docker-compose run --rm <<parameters.container>> <<parameters.run-command>>

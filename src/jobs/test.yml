@@ -9,10 +9,6 @@ parameters:
     type: string
     default: "web"
     description: "Application container name"
-  env-file:
-    type: string
-    default: ".env"
-    description: "env file path"
   run-command:
     type: string
     default: "npm run test"
@@ -22,5 +18,4 @@ steps:
   - checkout
   - run-tests:
       container: <<parameters.container>>
-      env-file: <<parameters.env-file>>
       run-command: <<parameters.run-command>>
