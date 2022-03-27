@@ -1,0 +1,26 @@
+description: |
+  Test BE
+
+executor:
+  name: default
+
+parameters:
+  container:
+    type: string
+    default: "web"
+    description: "Application container name"
+  env-file:
+    type: string
+    default: ".env"
+    description: "env file path"
+  run-command:
+    type: string
+    default: "npm run test"
+    description: "Command for run tests inside docker-compose environment"
+
+steps:
+  - checkout
+  - run-tests:
+      container: <<parameters.container>>
+      env-file: <<parameters.env-file>>
+      run-command: <<parameters.run-command>>
