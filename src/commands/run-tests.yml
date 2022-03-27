@@ -20,9 +20,9 @@ steps:
       name: Run Tests
       command: |
         #!/bin/bash
-        if [ "${PARAM_SKIP_TESTS}" == "1" ]; then
+        if [ "${PARAM_SKIP_TESTS}" == "0" ]; then
           docker-compose up --build --detach
-          docker-compose run --rm "${PARAM_CONTAINER}" "${PARAM_RUN_COMMAND}"
+          docker-compose run --rm $PARAM_CONTAINER $PARAM_RUN_COMMAND
         else
           echo "Skipping tests"
           exit 0
