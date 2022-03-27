@@ -22,7 +22,6 @@ steps:
         #!/bin/bash
         docker-compose --env-file "${PARAM_ENV_FILE}" up --build
         docker-compose run --rm "${PARAM_CONTAINER}" "${PARAM_RUN_COMMAND}"
-
       environment:
         PARAM_CONTAINER: <<parameters.container>>
         PARAM_ENV_FILE: <<parameters.env-file>>
